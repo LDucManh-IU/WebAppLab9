@@ -1,6 +1,8 @@
 package com.example.customer_api.dto;
 
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 public class CustomerUpdateDTO {
     
@@ -16,18 +18,15 @@ public class CustomerUpdateDTO {
     @Size(max = 500, message = "Address too long")
     private String address;
     
-    private String status;
-    
     // Constructors
     public CustomerUpdateDTO() {
     }
     
-    public CustomerUpdateDTO(String fullName, String email, String phone, String address, String status) {
+    public CustomerUpdateDTO(String fullName, String email, String phone, String address) {
         this.fullName = fullName;
         this.email = email;
         this.phone = phone;
         this.address = address;
-        this.status = status;
     }
     
     // Getters and Setters
@@ -61,13 +60,5 @@ public class CustomerUpdateDTO {
     
     public void setAddress(String address) {
         this.address = address;
-    }
-    
-    public String getStatus() {
-        return status;
-    }
-    
-    public void setStatus(String status) {
-        this.status = status;
     }
 }

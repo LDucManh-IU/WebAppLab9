@@ -1,13 +1,14 @@
 package com.example.customer_api.service;
 
-import com.example.customer_api.dto.CustomerRequestDTO;
-import com.example.customer_api.dto.CustomerResponseDTO;
-import com.example.customer_api.dto.CustomerUpdateDTO;
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
-import java.util.List;
+import com.example.customer_api.dto.CustomerRequestDTO;
+import com.example.customer_api.dto.CustomerResponseDTO;
+import com.example.customer_api.entity.CustomerStatus;
 
 public interface CustomerService {
     
@@ -23,13 +24,13 @@ public interface CustomerService {
     
     CustomerResponseDTO updateCustomer(Long id, CustomerRequestDTO requestDTO);
     
-    CustomerResponseDTO partialUpdateCustomer(Long id, CustomerUpdateDTO updateDTO);
+    CustomerResponseDTO partialUpdateCustomer(Long id, com.example.customer_api.dto.CustomerUpdateDTO updateDTO);
     
     void deleteCustomer(Long id);
     
     List<CustomerResponseDTO> searchCustomers(String keyword);
     
-    List<CustomerResponseDTO> getCustomersByStatus(String status);
+    List<CustomerResponseDTO> getCustomersByStatus(CustomerStatus status);
     
     List<CustomerResponseDTO> advancedSearch(String name, String email, String status);
 }
